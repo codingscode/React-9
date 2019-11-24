@@ -73,12 +73,19 @@ class App extends Component {
       estilo.backgroundColor = 'red';
     }
 
-    let classes = ['vermelho', 'negrito'].join(' '); 
+    const classes = [];
+    if (this.state.pessoas.length <= 2) {
+      classes.push('vermelho');  //classes = ['vermelho']
+    }
+    if (this.state.pessoas.length <= 1) {
+      classes.push('negrito');  //classes = ['vermelho', 'negrito']
+    }
+
 
     return (
       <div className="App">
         <h1>Olá, Sou um aplicativo React</h1>
-        <p className={classes}>Isto está funcionando</p>
+        <p className={classes.join(' ')}>Isto está funcionando</p>
         <button 
         style={estilo}
         onClick={this.toogleManipuladorPessoas}>Alternancia de Pessoas
